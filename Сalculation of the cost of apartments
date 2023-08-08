@@ -1,0 +1,35 @@
+using System.Activities.Statements;
+using System.Linq;
+
+namespace task_for_job_29._06._23
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int N = 30; // количество этажей
+            int M = 10; // интервал увеличения стоимости
+            int X = 10000; // стоимость первой квартиры
+
+            int currentFloor = 1; // текущий этаж
+            int currentPrice = X; // текущая стоимость квартиры
+
+            int total = 0; // выручка
+
+            while (currentFloor <= N)
+            {
+                total += currentPrice; // добавляем стоимость квартиры к общей выручке
+
+                if (currentFloor % M == 0) // проверяем, достигли ли мы границы увеличения стоимости
+                {
+                    currentPrice += 1000; // увеличиваем стоимость на 1000 долларов
+                }
+
+                currentFloor++; // переходим на следующий этаж
+            }
+
+            Console.WriteLine(total);
+
+        }
+    }
+}
